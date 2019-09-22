@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SimpleAPI.Models.Person>
+@{
+    ViewData["Title"] = "This is private!";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Welcome to the Private page. ;))</p>
+<a asp-action="Create">Add a user</a>
+
+<table class="table">
+    <tr><th>Name</th><th>Id</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Id</td>
+            <td>
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Name">Delete</a>      
+            </td>
+        </tr>
+    }
+</table>
